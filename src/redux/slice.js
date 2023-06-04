@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { fetchPosts } from "./service";
-
+console.log(fetchPosts);
 const initialState = {
   posts: [],
   isLoading: false,
@@ -10,30 +10,17 @@ console.log(initialState.posts);
 export const PostsReducer = createSlice({
   name: "user",
   initialState,
-  reducers: {
-    // postsFetching(state) {
-    //   state.isLoading = false;
-    // },
-    // postsFetchingSuccess(state, action) {
-    //   state.isLoading = false;
-    //   state.error = "";
-    //   state.users = action.payload;
-    // },
-    // postsFetchingError(state, action) {
-    //   state.isLoading = false;
-    //   state.error = action.payload;
-    // },
-  },
+  reducers: {},
   extraReducers: {
-    [fetchPosts.fulfilled.type]: (state, action) => {
+    [fetchPosts.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.error = "";
       state.posts = action.payload;
     },
-    [fetchPosts.pending.type]: (state) => {
+    [fetchPosts.pending]: (state) => {
       state.isLoading = true;
     },
-    [fetchPosts.rejected.type]: (state, action) => {
+    [fetchPosts.rejected]: (state, action) => {
       state.isLoading = false;
       state.error = action.payload;
     },

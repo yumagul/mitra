@@ -1,9 +1,19 @@
 import React from "react";
-import { postApi } from "../redux/service";
-
+import { useAppSelector } from "../redux/redux";
+import PostItem from "./PostItem";
 const PostContainer = () => {
-  const { data } = postApi.useFetchAllPostsQuery(5);
-  return <div>data</div>;
+  const { posts, isLoading, error } = useAppSelector(
+    (state) => state.PostsReducer
+  );
+  return (
+    <div className="container">
+      {isLoading && <h1> Идет загрузка </h1>}
+      {error && <h1>{error} </h1>}
+      {posts.map((post) => (
+        <PostItem key={post.id} post={post} />
+      ))}
+    </div>
+  );
 };
 
 export default PostContainer;
