@@ -16,7 +16,6 @@ export const fetchPosts = createAsyncThunk(
           },
         }
       );
-      console.log(response);
 
       return response.data;
     } catch (e) {

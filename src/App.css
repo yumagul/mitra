@@ -24,11 +24,12 @@
   justify-content: space-between;
 }
 .page__wrapper {
-  margin-top: 30px;
+  margin-top: 20px;
   display: flex;
+  justify-content: space-between;
 }
 .page {
-  padding: 10px;
+  padding: 15px;
   border: 1px solid teal;
   cursor: pointer;
 }

@@ -1,10 +1,6 @@
 import React from "react";
-import { useAppSelector } from "../redux/redux";
 import PostItem from "./PostItem";
-const PostContainer = () => {
-  const { posts, isLoading, error } = useAppSelector(
-    (state) => state.PostsReducer
-  );
+const PostContainer = ({ posts, isLoading, error }) => {
   return (
     <div className="container">
       {isLoading && <h1> Идет загрузка </h1>}

@@ -3,7 +3,6 @@ import { usePagination } from "./page";
 
 const Pagination = ({ totalPages, page, changePage }) => {
   let pagesArray = usePagination(totalPages);
-  console.log(page);
   return (
     <div className="page__wrapper">
       {pagesArray.map((p) => (
